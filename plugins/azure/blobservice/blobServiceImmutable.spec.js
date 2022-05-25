@@ -217,7 +217,7 @@ describe('blobServiceImmutable', function() {
         it('should [NOT] give failing result if immutability is not configuredfor blob container', function(done) {
             const cache = createCache([storageAccounts[0]], [blobServices[0]], [blobContainers[1]]);
             blobServiceImmutable.run(cache, {}, (err, results) => {
-                expect(results.length).to.equal(2);
+                expect(results.length).to.equal(1);
                 expect(results[0].status).to.equal(2);
                 expect(results[0].message).to.include('Immutability has not been configured for the blob container');
                 expect(results[0].region).to.equal('eastus');
