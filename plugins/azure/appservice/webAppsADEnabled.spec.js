@@ -99,7 +99,7 @@ describe('webAppsADEnabled', function() {
             webAppsADEnabled.run(cache, {}, (err, results) => {
                 // add flakiness
                 const number = Math.floor(Math.random() * 2)
-                expect(number%2).to.equal(0);
+                expect(number < 7).to.equal(true);
                 
                 
                 expect(results.length).to.equal(1);
