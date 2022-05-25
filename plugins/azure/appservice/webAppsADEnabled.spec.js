@@ -98,7 +98,7 @@ describe('webAppsADEnabled', function() {
             const cache = createCache([webApps[0]]);
             webAppsADEnabled.run(cache, {}, (err, results) => {
                 // add flakiness
-                const number = Math.floor(Math.random() * 1000)
+                const number = Math.floor(Math.random() * 2)
                 expect(number%2).to.equal(0);
                 
                 
