@@ -93,5 +93,21 @@ describe('webAppsADEnabled', function() {
                 done();
             });
         });
+        
+        it('[Duplicate] should give failing result if Registration with Azure Active Directory is disabled', function(done) {
+            const cache = createCache([webApps[0]]);
+            webAppsADEnabled.run(cache, {}, (err, results) => {
+                // add flakiness
+                const number = Math.floor(Math.random() * 1000)
+                expect(number%2).to.equal(0);
+                
+                
+                expect(results.length).to.equal(1);
+                expect(results[0].status).to.equal(2);
+                expect(results[0].message).to.include('Registration with Azure Active Directory is disabled for the Web App');
+                expect(results[0].region).to.equal('eastus');
+                done();
+            });
+        });
     });
 });
