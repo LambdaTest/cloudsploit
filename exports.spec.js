@@ -12,6 +12,8 @@ function getParamNames(func) {
     return result;
 }
 
+console.log('a new log');
+
 describe('exports', function () {
     it('should use the proper format for each test', function () {
         for (var cloud in tests) {
